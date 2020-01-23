@@ -191,6 +191,7 @@ function addMaterial(options: Schema): Rule {
 [.column]
 
 - Repo: https://github.com/angular-seattle/community-schematics
+- Slides: https://github.com/bniedermeyer/community-schematics-ng-seattle
 - https://angular.io/guide/schematics-authoring
 - https://brianflove.com/2018/12/15/ng-add-schematic/
 - https://www.youtube.com/watch?v=X06tuCohJPQ
