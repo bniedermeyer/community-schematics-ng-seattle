@@ -51,79 +51,39 @@ A set of `ng add` schematics to help quickly bootstrap websites for community gr
 
 ---
 
-![100%](assets/images/ng-add.gif)
+# collection.json
 
----
-
-# Motivation
-
-- Help other groups in and outside of the Angular community
-- Fun way to teach schematics with a project
-
----
-
-![120%](assets/images/meetup.png)
-<br>
-<sub>https://www.theverge.com/2019/10/15/20893343/meetup-users-furious-new-rsvp-payment-test</sub>
-
----
-
-If something happened to Meetup, what would we do?
-
----
-
-# Features
-
-[.column]
-
-- :white_check_mark: Generates a starter website, built with Angular 8, for your group
-- :white_check_mark: Uses Angular Material
-- :white_check_mark: Allows links to video hosting services and twitter
-
-[.column]
-
-- :white_check_mark: Displays events from your groups Meetup.com page
-- :white_check_mark: `ng deploy` support to deploy your site to Azure, Now, Netlify, or Github Pages
-- :white_check_mark: Prettier integration
-
----
-
-[.hide-footer]  
-![](assets/images/theres-more.gif)
-
----
-
-# Planned Features
-
-- Easy (and private) contact sharing to help network with people you meet at group events
-- PWA and Angular Universal support
-- Self hosted blogs for groups
-- Calendar management without Meetup.com
-- Email list support
-
----
-
-# Demo
-
----
-
-# A Peek Behind the Curtain
-
----
-
-# Terms
-
-- Tree: Virtural representation of filesystem. Contains a base of existing files and a staging area for updates.
-- SchematicContext: The context the schematic runs in. Supplies helpful metadata utils and things like logging.
-- Rule: Object that defines a function that takes a `Tree` and `SchemtaicContext`, applies changes, and returns a new Tree.
-
----
-
-```bash
-$ npm install -g @angular-devkit/schematics-cli
-
-$ schematics blank --name=hello-world
+```json
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Generates a new Angular Community site to your project with the requested configurations",
+      "factory": "./ng-add/index",
+      "schema": "./ng-add/schema.json"
+    },
+    "meetup": {
+      "description": "Adds meetup.com integration to the website",
+      "factory": "./meetup/index",
+      "schema": "./meetup/schema.json"
+    },
+    "deployments": {
+      "description": "Adds different deployment builders to the project via their respective ng-add calls",
+      "factory": "./deployments/index#deployments"
+    },
+    "ng-add-setup-project": {
+      "description": "A schematic that executes setup logic for the project",
+      "factory": "./ng-add-setup-project/index#ngAddSetupProject"
+    }
+  }
+}
 ```
+
+---
+
+[.hide-footer]
+
+![80%](assets/images/schema.png)
 
 ---
 
@@ -180,9 +140,65 @@ function addMaterial(options: Schema): Rule {
 
 ---
 
-[.hide-footer]
+![100%](assets/images/ng-add.gif)
 
-![80%](assets/images/schema.png)
+---
+
+# Community Schematics
+
+A set of `ng add` schematics to help quickly bootstrap websites for community groups and give them a good starting point for building their home on the web.
+
+---
+
+# Motivation
+
+- Help other groups in and outside of the Angular community
+- Fun way to teach schematics with a project
+
+---
+
+![120%](assets/images/meetup.png)
+<br>
+<sub>https://www.theverge.com/2019/10/15/20893343/meetup-users-furious-new-rsvp-payment-test</sub>
+
+---
+
+If something happened to Meetup, what would we do?
+
+---
+
+# Features
+
+[.column]
+
+- :white_check_mark: Generates a starter website, built with Angular 8, for your group
+- :white_check_mark: Uses Angular Material
+- :white_check_mark: Allows links to video hosting services and twitter
+
+[.column]
+
+- :white_check_mark: Displays events from your groups Meetup.com page
+- :white_check_mark: `ng deploy` support to deploy your site to Azure, Now, Netlify, or Github Pages
+- :white_check_mark: Prettier integration
+
+---
+
+[.hide-footer]  
+![](assets/images/theres-more.gif)
+
+---
+
+# Planned Features
+
+- Easy (and private) contact sharing to help network with people you meet at group events
+- PWA and Angular Universal support
+- Self hosted blogs for groups
+- Calendar management without Meetup.com
+- Email list support
+
+---
+
+# Demo
 
 ---
 
